@@ -3,6 +3,9 @@ const bodyParser = require("body-parser");
 // const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+const user = process.env.user_name;
+const pass = process.env.password;
+// console.log(user+":"+pass);
 
 
 const app = express();
@@ -13,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb+srv://admin-salvi:salvi%40154@cluster0.v0lnf80.mongodb.net/todolist2DB",() => {
+mongoose.connect("mongodb+srv://user:pass@cluster0.v0lnf80.mongodb.net/todolist2DB",() => {
   console.log("DB is connected");
 });
 
