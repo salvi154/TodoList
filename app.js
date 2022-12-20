@@ -1,15 +1,3 @@
-app.use( function(req, res, next) { // Ignore favicon.ico requests.
-
-   if (req.originalUrl && req.originalUrl.split("/").pop() === 'favicon.ico') {
-
-      return res.sendStatus(204);
-
-   }
-
-   return next();
-
-});
-
 const express = require("express");
 const bodyParser = require("body-parser");
 // const date = require(__dirname + "/date.js");
@@ -21,6 +9,17 @@ const pass = process.env.password;
 
 
 const app = express();
+app.use( function(req, res, next) { // Ignore favicon.ico requests.
+
+   if (req.originalUrl && req.originalUrl.split("/").pop() === 'favicon.ico') {
+
+      return res.sendStatus(204);
+
+   }
+
+   return next();
+
+});
 
 app.set('view engine', 'ejs');
 
